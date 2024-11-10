@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Legumes</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+   
+    <header>
+        <div class="top-bar">
+            <input type="text" placeholder="O que procura hoje?">
+            <nav>
+                <a href="minha-conta.html">Minha Conta</a>
+                <a href="#">Precisa de ajuda?</a>
+                <a href="carrinho.html">Meu carrinho</a>
+            </nav>
+        </div>
+    </header>
+
+   
+    <div id="notification" class="notification"></div>
+
+   
+    <main>
+        <section class="products">
+           
+            <div class="product">
+                <img src="img/alface.png" alt="Alface crespa">
+                <h3>Alface crespa</h3>
+                <p>R$ 4,50</p>
+                <button class="btn-cart" id="alface-add-btn" onclick="showQuantityControl('alface')">Adicionar ao Carrinho</button>
+                <div class="quantity-control" id="alface-control" style="display: none;">
+                    <button onclick="decreaseQuantity('alface-quantity')">-</button>
+                    <span id="alface-quantity">1</span>
+                    <button onclick="increaseQuantity('alface-quantity')">+</button>
+                    <button class="confirm-btn" onclick="addToCart('alface', 'Alface crespa', 4.50)">Confirmar</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/cenoura.png" alt="Cenoura 700g">
+                <h3>Cenoura 700g</h3>
+                <p>R$ 8,00</p>
+                <button class="btn-cart" id="cenoura-add-btn" onclick="showQuantityControl('cenoura')">Adicionar ao Carrinho</button>
+                <div class="quantity-control" id="cenoura-control" style="display: none;">
+                    <button onclick="decreaseQuantity('cenoura-quantity')">-</button>
+                    <span id="cenoura-quantity">1</span>
+                    <button onclick="increaseQuantity('cenoura-quantity')">+</button>
+                    <button class="confirm-btn" onclick="addToCart('cenoura', 'Cenoura 700g', 8.00)">Confirmar</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/cebola.png" alt="Cebola 360g">
+                <h3>Cebola 360g</h3>
+                <p>R$ 9,00</p>
+                <button class="btn-cart" id="cebola-add-btn" onclick="showQuantityControl('cebola')">Adicionar ao Carrinho</button>
+                <div class="quantity-control" id="cebola-control" style="display: none;">
+                    <button onclick="decreaseQuantity('cebola-quantity')">-</button>
+                    <span id="cebola-quantity">1</span>
+                    <button onclick="increaseQuantity('cebola-quantity')">+</button>
+                    <button class="confirm-btn" onclick="addToCart('cebola', 'Cebola 360g', 9.00)">Confirmar</button>
+                </div>
+            </div>
+
+            
+            <div class="product">
+                <img src="img/tomate.png" alt="Tomate 750g">
+                <h3>Tomate 750g</h3>
+                <p>R$ 13,50 / Kg</p>
+                <button class="btn-cart" id="tomate-add-btn" onclick="showQuantityControl('tomate')">Adicionar ao Carrinho</button>
+                <div class="quantity-control" id="tomate-control" style="display: none;">
+                    <button onclick="decreaseQuantity('tomate-quantity')">-</button>
+                    <span id="tomate-quantity">1</span>
+                    <button onclick="increaseQuantity('tomate-quantity')">+</button>
+                    <button class="confirm-btn" onclick="addToCart('tomate', 'Tomate 750g', 13.50)">Confirmar</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/batata.png" alt="Batata 1kg">
+                <h3>Batata 1kg</h3>
+                <p>R$ 5,00</p>
+                <button class="btn-cart" id="batata-add-btn" onclick="showQuantityControl('batata')">Adicionar ao Carrinho</button>
+                <div class="quantity-control" id="batata-control" style="display: none;">
+                    <button onclick="decreaseQuantity('batata-quantity')">-</button>
+                    <span id="batata-quantity">1</span>
+                    <button onclick="increaseQuantity('batata-quantity')">+</button>
+                    <button class="confirm-btn" onclick="addToCart('batata', 'Batata 1kg', 5.00)">Confirmar</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/batata-doce.png" alt="Batata Doce 1kg">
+                <h3>Batata Doce 1kg</h3>
+                <p>R$ 6,00</p>
+                <button class="btn-cart" id="batata-doce-add-btn" onclick="showQuantityControl('batata-doce')">Adicionar ao Carrinho</button>
+                <div class="quantity-control" id="batata-doce-control" style="display: none;">
+                    <button onclick="decreaseQuantity('batata-doce-quantity')">-</button>
+                    <span id="batata-doce-quantity">1</span>
+                    <button onclick="increaseQuantity('batata-doce-quantity')">+</button>
+                    <button class="confirm-btn" onclick="addToCart('batata-doce', 'Batata Doce 1kg', 6.00)">Confirmar</button>
+                </div>
+            </div>
+
+            
+            <div class="product">
+                <img src="img/repolho.png" alt="Repolho">
+                <h3>Repolho</h3>
+                <p>R$ 4,00</p>
+                <button class="btn-cart" id="repolho-add-btn" onclick="showQuantityControl('repolho')">Adicionar ao Carrinho</button>
+                <div class="quantity-control" id="repolho-control" style="display: none;">
+                    <button onclick="decreaseQuantity('repolho-quantity')">-</button>
+                    <span id="repolho-quantity">1</span>
+                    <button onclick="increaseQuantity('repolho-quantity')">+</button>
+                    <button class="confirm-btn" onclick="addToCart('repolho', 'Repolho', 4.00)">Confirmar</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/abobora.png" alt="Abóbora">
+                <h3>Abóbora</h3>
+                <p>R$ 3,50</p>
+                <button class="btn-cart" id="abobora-add-btn" onclick="showQuantityControl('abobora')">Adicionar ao Carrinho</button>
+                <div class="quantity-control" id="abobora-control" style="display: none;">
+                    <button onclick="decreaseQuantity('abobora-quantity')">-</button>
+                    <span id="abobora-quantity">1</span>
+                    <button onclick="increaseQuantity('abobora-quantity')">+</button>
+                    <button class="confirm-btn" onclick="addToCart('abobora', 'Abóbora', 3.50)">Confirmar</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/mandioca.png" alt="Mandioca 1kg">
+                <h3>Mandioca 1kg</h3>
+                <p>R$ 7,00</p>
+                <button class="btn-cart" id="mandioca-add-btn" onclick="showQuantityControl('mandioca')">Adicionar ao Carrinho</button>
+                <div class="quantity-control" id="mandioca-control" style="display: none;">
+                    <button onclick="decreaseQuantity('mandioca-quantity')">-</button>
+                    <span id="mandioca-quantity">1</span>
+                    <button onclick="increaseQuantity('mandioca-quantity')">+</button>
+                    <button class="confirm-btn" onclick="addToCart('mandioca', 'Mandioca 1kg', 7.00)">Confirmar</button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="img/beterraba.png" alt="Beterraba 500g">
+                <h3>Beterraba 500g</h3>
+                <p>R$ 3,00</p>
+                <button class="btn-cart" id="beterraba-add-btn" onclick="showQuantityControl('beterraba')">Adicionar ao Carrinho</button>
+                <div class="quantity-control" id="beterraba-control" style="display: none;">
+                    <button onclick="decreaseQuantity('beterraba-quantity')">-</button>
+                    <span id="beterraba-quantity">1</span>
+                    <button onclick="increaseQuantity('beterraba-quantity')">+</button>
+                    <button class="confirm-btn" onclick="addToCart('beterraba', 'Beterraba 500g', 3.00)">Confirmar</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/abobrinha.png" alt="Abobrinha 500g">
+                <h3>Abobrinha 500g</h3>
+                <p>R$ 5,00</p>
+                <button class="btn-cart" id="abobrinha-add-btn" onclick="showQuantityControl('abobrinha')">Adicionar ao Carrinho</button>
+                <div class="quantity-control" id="abobrinha-control" style="display: none;">
+                    <button onclick="decreaseQuantity('abobrinha-quantity')">-</button>
+                    <span id="abobrinha-quantity">1</span>
+                    <button onclick="increaseQuantity('abobrinha-quantity')">+</button>
+                    <button class="confirm-btn" onclick="addToCart('abobrinha', 'Abobrinha 500g', 5.00)">Confirmar</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/couve-flor.png" alt="Couve-flor">
+                <h3>Couve-flor</h3>
+                <p>R$ 4,80</p>
+                <button class="btn-cart" id="couve-flor-add-btn" onclick="showQuantityControl('couve-flor')">Adicionar ao Carrinho</button>
+                <div class="quantity-control" id="couve-flor-control" style="display: none;">
+                    <button onclick="decreaseQuantity('couve-flor-quantity')">-</button>
+                    <span id="couve-flor-quantity">1</span>
+                    <button onclick="increaseQuantity('couve-flor-quantity')">+</button>
+                    <button class="confirm-btn" onclick="addToCart('couve-flor', 'Couve-flor', 4.80)">Confirmar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+    <footer>
+        <div class="footer-links">
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Exerça seus Direitos de Privacidade</a>
+        </div>
+    </footer>
+
+   
+    <script src="/scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+ 
+    <header>
+        <div class="top-bar">
+            <h1>Carrinho de Compras</h1>
+        </div>
+    </header>
+
+    <section class="cart-items">
+        <div id="cart-container">
+           
+        </div>
+    </section>
+
+    <section class="cart-total">
+        <h3>Total: R$ <span id="cart-total">0.00</span></h3>
+        <button class="checkout-btn">Ir para o Pagamento</button>
+    </section>
+
+    
+    <footer>
+        <div class="footer-links">
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Exerça seus Direitos de Privacidade</a>
+        </div>
+    </footer>
+
+    <script>
+        // Função para carregar e exibir o carrinho do sessionStorage
+        function loadCart() {
+            const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+            const cartContainer = document.getElementById("cart-container");
+            const cartTotalElement = document.getElementById("cart-total");
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = "<p>O carrinho está vazio.</p>";
+                return;
+            }
+
+            cartContainer.innerHTML = ""; // Limpar o conteúdo antes de exibir
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                // Adiciona cada item do carrinho ao container com detalhes e controles
+                cartContainer.innerHTML += `
+                    <div class="cart-item">
+                        <img src="img/${item.image}" alt="${item.name}" style="width: 80px; height: auto;">
+                        <div class="cart-details">
+                            <h3>${item.name}</h3>
+                            <p>Preço: R$ ${item.price.toFixed(2)}</p>
+                            <p>Total: R$ ${itemTotal.toFixed(2)}</p>
+                            <div class="quantity-control">
+                                <button onclick="decreaseItemQuantity(${index})">-</button>
+                                <span>${item.quantity}</span>
+                                <button onclick="increaseItemQuantity(${index})">+</button>
+                            </div>
+                            <button onclick="removeItem(${index})" class="remove-btn">Excluir</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartTotalElement.textContent = total.toFixed(2);
+        }
+
+        // Função para aumentar a quantidade de um item
+        function increaseItemQuantity(index) {
+            const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+            cart[index].quantity += 1;
+            sessionStorage.setItem("cart", JSON.stringify(cart));
+            loadCart(); // Recarrega o carrinho para atualizar a interface
+        }
+
+        // Função para diminuir a quantidade de um item
+        function decreaseItemQuantity(index) {
+            const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+            if (cart[index].quantity > 1) {
+                cart[index].quantity -= 1;
+                sessionStorage.setItem("cart", JSON.stringify(cart));
+                loadCart(); 
+            } else {
+                removeItem(index); 
+            }
+        }
+
+        // Função para remover um item do carrinho
+        function removeItem(index) {
+            const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+            cart.splice(index, 1); // Remove o item do array
+            sessionStorage.setItem("cart", JSON.stringify(cart));
+            loadCart(); // Recarrega o carrinho para atualizar a interface
+        }
+
+        loadCart(); // Carregar o carrinho ao abrir a página
+    </script>
+</body>
+</html>
